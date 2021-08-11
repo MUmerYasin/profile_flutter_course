@@ -8,12 +8,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'selection',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         textTheme: GoogleFonts.playfairDisplayTextTheme(
           Theme.of(context).textTheme,),
       ),
@@ -50,10 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-             Text(
-              'You have pushed the button this many times:',
-            ),
+          children:  <Widget>[
+            TextButton.icon(
+              icon: const Icon(Icons.camera),
+              label: const  Text('Logout'),
+              onPressed: () {},
+            )
           ],
         ),
       ),
