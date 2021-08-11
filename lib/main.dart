@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:profile_flutter_course/Configs/ProjectColors/project_colors.dart';
+import 'package:profile_flutter_course/Configs/ProjectStrings/project_strings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           widget.title,
           style: GoogleFonts.playfairDisplay(
-        textStyle: const TextStyle(color: Color(0xff5c5258), ),
+        textStyle: const TextStyle(color: appBarColorCustom, ),
       ),
         ),
         elevation:1.0,
@@ -54,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children:  <Widget>[
             TextButton.icon(
               icon: const Icon(Icons.camera),
-              label: const  Text('Logout'),
+              label: const  Text(logOutString),
               onPressed: () {},
             )
           ],
