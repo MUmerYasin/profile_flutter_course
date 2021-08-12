@@ -3,7 +3,7 @@ const String logOutString = "Logout";
 
 ///user profile data
 ///user name > Email
-const String userNameString = "Jhon Due";
+const String userNameString = "Abbas Aslam";
 const String userEmailString = "example123@gmail.com";
 
 ///Profile Screen Tab List text
