@@ -1,3 +1,5 @@
+// import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,31 +17,62 @@ class ProfileTwoClass extends StatefulWidget {
 class _ProfileTwoClassState extends State<ProfileTwoClass> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            profileVar,
-            style: GoogleFonts.playfairDisplay(
-              textStyle: const TextStyle(
-                color: appBarColorCustom,
+/// Will WillPopScope (show Dialog) body to ask user Do you want to exit an App? or Not
+
+    Future<bool> showExitPopup() async {
+      return await showDialog( //show confirm dialogue
+        //the return value will be from "Yes" or "No" options
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text(exitAppString),
+          content: const Text(doYouExitAppString),
+          actions:[
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              //return false when click on "NO"
+              child:const Text(cancelString),
+            ),
+
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              //return true when click on "Yes"
+              child:const Text(okString),
+            ),
+
+          ],
+        ),
+      )??false; //if show Dialouge had returned null, then return false
+    }
+    ///
+
+    return WillPopScope(
+      onWillPop: showExitPopup,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              profileVar,
+              style: GoogleFonts.playfairDisplay(
+                textStyle: const TextStyle(
+                  color: appBarColorCustom,
+                ),
               ),
             ),
+            elevation: 1.0,
+            centerTitle: true,
+            backgroundColor: Colors.white,
           ),
-          elevation: 1.0,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              /// CALL constructor or Object OF all class to show in Main Screen
-              ProfileInformation(),
-              SocialDetails(),
-              // Divider(),
-              SettingListCellingClass(),
-            ],
-          ),
-        ));
+          body: SingleChildScrollView(
+            child: Column(
+              children: const [
+                /// CALL constructor or Object OF all class to show in Main Screen
+                ProfileInformation(),
+                SocialDetails(),
+                // Divider(),
+                SettingListCellingClass(),
+              ],
+            ),
+          )),
+    );
   }
 }
 
@@ -628,3 +661,4 @@ class _SettingListState extends State<SettingList> {
     );
   }
 }
+

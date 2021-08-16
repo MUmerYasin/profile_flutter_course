@@ -30,5 +30,7 @@ const String fourthBottomNavigationBarString = "Profile";
 ///Ok and Cancel
 const String okString = "Ok";
 const String cancelString = "Cancel";
+const String exitAppString = "Exit App";
+const String doYouExitAppString = "Do you want to exit an App?";
 
 
