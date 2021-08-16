@@ -1,4 +1,5 @@
 
+const String profileVar = "PROFILE";
 const String logOutString = "Logout";
 
 ///user profile data

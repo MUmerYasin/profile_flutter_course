@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:profile_flutter_course/Configs/ProjectColors/project_colors.dart';
 import 'package:profile_flutter_course/Configs/ProjectStrings/project_strings.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:profile_flutter_course/profie_two.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const MyHomePage(title: 'PROFILE'),
+      // home: const MyHomePage(title: 'PROFILE'),
+      home: const ProfileTwoClass(),
     );
   }
 }
@@ -95,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         border: Border.all(
                           color: greenIconColorCustom,
                           width: 2,
-
                         ),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10.0)),
@@ -104,7 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: Colors.grey.withOpacity(0.7),
                             spreadRadius: 3,
                             blurRadius: 5,
-                            offset: const Offset(0, 3), // changes position of shadow
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
                           ),
                         ],
                       ),
@@ -139,14 +141,15 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize : MainAxisSize.min,
                 // mainAxisSize : MainAxisSize.min,
-                children: const [
+                children: [
                   Flexible(
                     fit: FlexFit.loose,
                     child: SizedBox(
                       height: 80.0,
 
-                      // width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width,
                       // width: double.infinity,
 
                       child: TabBar(
@@ -157,45 +160,148 @@ class _MyHomePageState extends State<MyHomePage> {
                         automaticIndicatorColorAdjustment: true,
                         indicator: BoxDecoration(
                           border: Border(
-                            bottom: BorderSide(color: Colors.transparent, width: 10, style: BorderStyle.solid),
-                            // left: BorderSide(
-                            //   color: subTitleColorCustom,
-                            //   width: 2,
-                            // ),
+                            bottom: BorderSide(
+                                color: Colors.transparent,
+                                width: 2,
+                                style: BorderStyle.solid),
                           ),
                           // Border.all(color: Colors.grey, width: 2),
                           // shape: BoxShape.rectangle,
                           // borderRadius: BorderRadius.circular(50),
                           // color: Colors.white,
                         ),
-
-                        // indicatorPadding : EdgeInsets.zero,
-
+                        indicatorPadding : EdgeInsets.zero,
                         labelStyle: TextStyle(
-                            fontSize: 12.0, fontFamily: 'Playfair Display', color: subTitleColorCustom,),
+                          fontSize: 12.0,
+                          fontFamily: 'Playfair Display',
+                          color: subTitleColorCustom,
+                        ),
                         //For Selected tab
                         unselectedLabelStyle: TextStyle(
-                            fontSize: 12.0, fontFamily: 'Playfair Display',color: subTitleColorCustom,),
-
+                          fontSize: 12.0,
+                          fontFamily: 'Playfair Display',
+                          color: subTitleColorCustom,
+                        ),
                         // physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics(),),
                         physics: BouncingScrollPhysics(),
+
                         tabs: <Widget>[
+
                           Tab(
-                            icon: Icon(Icons.cloud_outlined,color: greenIconColorCustom,),
-                            text: firstTabListString,
+                            iconMargin:  const EdgeInsets.all(0),
+                            child: Container(
+                              margin:  const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
+                              width: MediaQuery.of(context).size.width / 7,
+                              // decoration: BoxDecoration(
+                              //   border: Border(
+                              //     left: BorderSide(
+                              //         color: subTitleColorCustom,
+                              //         width: 2,
+                              //         style: BorderStyle.solid),
+                              //   ),
+                              //
+                              // ),
+
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize : MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(Icons.call,color: greenIconColorCustom,), // icon
+                                  Text(firstTabListString), // text
+                                ],
+                              ),
+                            ),
                           ),
 
                           Tab(
-                            icon: Icon(Icons.beach_access_sharp,color: greenIconColorCustom,),
-                            text: secondTabListString,
+                            iconMargin:  const EdgeInsets.all(0),
+                            child: Container(
+                              alignment:Alignment.center,
+                              margin:  const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
+                              width: MediaQuery.of(context).size.width / 7,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  left: BorderSide(
+                                      color: subTitleColorCustom,
+                                      width: 1,
+                                      style: BorderStyle.solid
+                                  ),
+                                ),
+
+                              ),
+
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize : MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(Icons.call,color: greenIconColorCustom,), // icon
+                                  Text(secondTabListString), // text
+                                ],
+                              ),
+                            ),
                           ),
+
                           Tab(
-                            icon: Icon(Icons.brightness_5_sharp,color: greenIconColorCustom,),
-                            text: thirdTabListString,
+
+                            iconMargin:  const EdgeInsets.all(0),
+                            child: Container(
+                              alignment:Alignment.center,
+                              margin:  const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
+                              width: MediaQuery.of(context).size.width / 7,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  left: BorderSide(
+                                      color: subTitleColorCustom,
+                                      width: 1,
+                                      style: BorderStyle.solid),
+                                ),
+
+                              ),
+
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize : MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(Icons.call,color: greenIconColorCustom,), // icon
+                                  Text(thirdTabListString), // text
+                                ],
+                              ),
+                            ),
                           ),
+
                           Tab(
-                            icon: Icon(Icons.brightness_5_sharp,color: greenIconColorCustom,),
-                            text: fourthTabListString,
+                            iconMargin:  const EdgeInsets.all(0),
+                            child: Container(
+                              alignment:Alignment.center,
+                              margin:  const EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
+                              width: MediaQuery.of(context).size.width / 7,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  left: BorderSide(
+                                      color: subTitleColorCustom,
+                                      width: 1,
+                                      style: BorderStyle.solid),
+                                ),
+
+                              ),
+
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize : MainAxisSize.min,
+                                children: <Widget>[
+                                  Icon(Icons.call,color: greenIconColorCustom,), // icon
+                                  Text(fourthTabListString), // text
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -215,7 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // mainAxisSize: MainAxisSize.min,
 
                 children: [
-                   Flexible(
+                  Flexible(
                     fit: FlexFit.loose,
                     child: SizedBox(
                       height: 500.0,
@@ -223,65 +329,100 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       child: TabBarView(
                         children: <Widget>[
-
                           ListView(
-                              // scrollDirection : Axis.vertical,
-
+                            // scrollDirection : Axis.vertical,
+                            itemExtent: 30,
 
                             // physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics(),),
-                            shrinkWrap : true,
-                            children:const <Widget>[
-                              SizedBox(
-                                height: 40.0,
-                                child: Center(
-                                  child: ListTile(
+                            shrinkWrap: true,
 
-                          // contentPadding: EdgeInsets.zero,
-                          // minVerticalPadding:0.0,
-                                    leading: Icon(Icons.map,color: greenIconColorCustom,),
-                                    title: Text(firstListTileString),
-                                    trailing: Icon(Icons.arrow_forward_ios_sharp),
-                                  ),
-                                ),
-                              ),
-
-
-                              Divider(thickness: 2.0,),
+                            children: const <Widget>[
                               ListTile(
-                                leading: Icon(Icons.map,color: greenIconColorCustom,),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+
+                                // dense:true,
+                                // contentPadding: EdgeInsets.zero,
+                                // minVerticalPadding:0.0,
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
+                                title: Text(firstListTileString),
+                                trailing: Icon(Icons.arrow_forward_ios_sharp),
+                              ),
+                              Divider(
+                                thickness: 2.0,
+                              ),
+                              ListTile(
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
                                 title: Text(secondListTileString),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                               ),
-                              Divider(thickness: 2.0,),
+                              Divider(
+                                thickness: 2.0,
+                              ),
                               ListTile(
-                                leading: Icon(Icons.map,color: greenIconColorCustom,),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
                                 title: Text(thirdListTileString),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                               ),
-                              Divider(thickness: 2.0,),
+                              Divider(
+                                thickness: 2.0,
+                              ),
                               ListTile(
-                                leading: Icon(Icons.map,color: greenIconColorCustom,),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
                                 title: Text(fourthListTileString),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                               ),
-                              Divider(thickness: 2.0,),
+                              Divider(
+                                thickness: 2.0,
+                              ),
                               ListTile(
-                                leading: Icon(Icons.map,color: greenIconColorCustom,),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
                                 title: Text(fiveListTileString),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                               ),
-                              Divider(thickness: 2.0,),
+                              Divider(
+                                thickness: 2.0,
+                              ),
                               ListTile(
-                                leading: Icon(Icons.map,color: greenIconColorCustom,),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 16.0),
+                                leading: Icon(
+                                  Icons.map,
+                                  color: greenIconColorCustom,
+                                ),
                                 title: Text(sixListTileString),
                                 trailing: Icon(Icons.arrow_forward_ios_sharp),
                               ),
-                              Divider(thickness: 2.0,),
-
+                              Divider(
+                                thickness: 2.0,
+                              ),
                             ],
                           ),
                           ListView(
-                            children:const <Widget>[
+                            children: const <Widget>[
                               ListTile(
                                 leading: Icon(Icons.map),
                                 title: Text('Map'),
@@ -297,7 +438,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           ListView(
-                            children:const <Widget>[
+                            children: const <Widget>[
                               ListTile(
                                 leading: Icon(Icons.map),
                                 title: Text('Map'),
@@ -313,7 +454,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           ListView(
-                            children:const <Widget>[
+                            children: const <Widget>[
                               ListTile(
                                 leading: Icon(Icons.map),
                                 title: Text('Map'),
@@ -334,8 +475,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-
-
             ],
           ),
         ),
