@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:profile_flutter_course/Configs/ProjectColors/project_colors.dart';
 import 'package:profile_flutter_course/Configs/ProjectStrings/project_strings.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:profile_flutter_course/profie_two.dart';
+// import 'package:profile_flutter_course/testingwidgets.dart';
 
 void main() => runApp(
       DevicePreview(
-        // enabled: !kReleaseMode,
+        enabled: !kReleaseMode,
         builder: (context) => const MyApp(), // Wrap your app
       ),
     );
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: const MyHomePage(title: 'PROFILE'),
       home: const ProfileTwoClass(),
+      // home: const TestingWidgetsC(),
     );
   }
 }

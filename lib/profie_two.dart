@@ -32,13 +32,11 @@ class _ProfileTwoClassState extends State<ProfileTwoClass> {
         body: SingleChildScrollView(
           child: Column(
             children: const [
-
               /// CALL constructor or Object OF all class to show in Main Screen
               ProfileInformation(),
-               SocialDetails(),
+              SocialDetails(),
               // Divider(),
               SettingListCellingClass(),
-
             ],
           ),
         ));
@@ -279,15 +277,16 @@ class _SocialDetailsState extends State<SocialDetails> {
               //     ),
               //   ),
               // )
-              VerticalDivider(indent: 12.0, endIndent:20.0),
+              VerticalDivider(indent: 12.0, endIndent: 20.0),
               SocialItems(
-                  txt: secondTabListString, icon: Icons.arrow_forward_ios_sharp),
-              VerticalDivider(indent: 12.0, endIndent:20.0),
+                  txt: secondTabListString,
+                  icon: Icons.arrow_forward_ios_sharp),
+              VerticalDivider(indent: 12.0, endIndent: 20.0),
               SocialItems(
                 txt: thirdTabListString,
                 icon: Icons.amp_stories,
               ),
-              VerticalDivider(indent: 12.0, endIndent:20.0),
+              VerticalDivider(indent: 12.0, endIndent: 20.0),
               SocialItems(
                 txt: thirdTabListString,
                 icon: Icons.amp_stories,
@@ -341,7 +340,7 @@ class _SocialItemsState extends State<SocialItems> {
                     ), // icon
                     Text(
                       widget.txt,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: subTitleColorCustom,
                         fontSize: 12.0,
                       ),
@@ -440,27 +439,43 @@ class SettingListCellingClass extends StatefulWidget {
   const SettingListCellingClass({Key? key}) : super(key: key);
 
   @override
-  _SettingListCellingClassState createState() => _SettingListCellingClassState();
+  _SettingListCellingClassState createState() =>
+      _SettingListCellingClassState();
 }
 
 class _SettingListCellingClassState extends State<SettingListCellingClass> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children:  [
-        const Divider(
-          // thickness: 2.0,
-        ),
-        SettingList(icon: Icons.face, txt: firstListTileString, iconTwo: Icons.arrow_forward_ios),
-        SettingList(icon: Icons.amp_stories, txt: secondListTileString, iconTwo: Icons.arrow_forward_ios),
-        SettingList(icon: Icons.camera, txt: thirdListTileString, iconTwo: Icons.arrow_forward_ios),
-        SettingList(icon: Icons.logout, txt: fourthListTileString, iconTwo: Icons.arrow_forward_ios),
-        SettingList(icon: Icons.map, txt: fiveListTileString, iconTwo: Icons.arrow_forward_ios),
-        SettingList(icon: Icons.zoom_out_map, txt: sixListTileString, iconTwo: Icons.arrow_forward_ios),
-
-
+      children: const [
+        Divider(
+            // thickness: 2.0,
+            ),
+        SettingList(
+            icon: Icons.face,
+            txt: firstListTileString,
+            iconTwo: Icons.arrow_forward_ios),
+        SettingList(
+            icon: Icons.amp_stories,
+            txt: secondListTileString,
+            iconTwo: Icons.arrow_forward_ios),
+        SettingList(
+            icon: Icons.camera,
+            txt: thirdListTileString,
+            iconTwo: Icons.arrow_forward_ios),
+        SettingList(
+            icon: Icons.logout,
+            txt: fourthListTileString,
+            iconTwo: Icons.arrow_forward_ios),
+        SettingList(
+            icon: Icons.map,
+            txt: fiveListTileString,
+            iconTwo: Icons.arrow_forward_ios),
+        SettingList(
+            icon: Icons.zoom_out_map,
+            txt: sixListTileString,
+            iconTwo: Icons.arrow_forward_ios),
       ],
-
     );
   }
 }
@@ -471,7 +486,7 @@ class SettingList extends StatefulWidget {
   final String txt;
   final IconData iconTwo;
 
-  SettingList({required this.icon, required this.txt, required this.iconTwo});
+  const SettingList({required this.icon, required this.txt, required this.iconTwo});
 
   @override
   _SettingListState createState() => _SettingListState();
@@ -510,20 +525,41 @@ class _SettingListState extends State<SettingList> {
 
         ListTile(
           visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-          contentPadding: const EdgeInsets.symmetric(
-              vertical: 0.0, horizontal: 16.0),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0.0, horizontal: 16.0),
           leading: Icon(
             widget.icon,
             color: greenIconColorCustom,
           ),
-          title: Text(widget.txt,),
+          title: Text(
+            widget.txt,
+          ),
           trailing: Icon(widget.iconTwo),
+          onTap: () {
+            showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: Text(widget.txt),
+                content: Text(widget.txt),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, cancelString),
+                    child: const Text(cancelString,style: TextStyle(color: logoutIconColorCustom,),),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, okString),
+                    child: const Text(okString,style: TextStyle(color: logoutIconColorCustom,),),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
 
 
         const Divider(
-          // thickness: 2.0,
-        ),
+            // thickness: 2.0,
+            ),
         //
         // ListTile(
         //   visualDensity: VisualDensity(horizontal: 0, vertical: -4),

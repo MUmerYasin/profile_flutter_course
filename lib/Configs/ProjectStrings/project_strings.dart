@@ -27,3 +27,8 @@ const String secondBottomNavigationBarString = "Polling";
 const String thirdBottomNavigationBarString = "Group";
 const String fourthBottomNavigationBarString = "Profile";
 
+///Ok and Cancel
+const String okString = "Ok";
+const String cancelString = "Cancel";
+
+
